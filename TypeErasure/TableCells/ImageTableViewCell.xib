@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageTableViewCell" rowHeight="243" id="KGk-i7-Jjw" customClass="ImageTableViewCell" customModule="TypeErasure" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="243"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="370" height="242.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8u-DY-elg">
+                        <rect key="frame" x="16" y="11" width="338" height="23.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A2h-FI-rdm">
+                        <rect key="frame" x="0.0" y="42.5" width="370" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="iMW-uw-lfs"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="A2h-FI-rdm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5Zf-Oc-cSI"/>
+                    <constraint firstItem="O8u-DY-elg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="6LD-EJ-Qy6"/>
+                    <constraint firstItem="O8u-DY-elg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="J7J-he-SBp"/>
+                    <constraint firstAttribute="trailing" secondItem="A2h-FI-rdm" secondAttribute="trailing" id="Kfk-Zr-TSW"/>
+                    <constraint firstAttribute="bottom" secondItem="A2h-FI-rdm" secondAttribute="bottom" id="NHr-o5-msu"/>
+                    <constraint firstItem="A2h-FI-rdm" firstAttribute="top" secondItem="O8u-DY-elg" secondAttribute="bottom" constant="8" id="aob-3H-wNC"/>
+                    <constraint firstItem="O8u-DY-elg" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="dVm-JG-Fc5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="thumbImageView" destination="A2h-FI-rdm" id="hvD-qA-8Cc"/>
+                <outlet property="titleLabel" destination="O8u-DY-elg" id="q1Q-6X-qbd"/>
+            </connections>
+            <point key="canvasLocation" x="177.59999999999999" y="273.01349325337333"/>
+        </tableViewCell>
+    </objects>
+</document>
