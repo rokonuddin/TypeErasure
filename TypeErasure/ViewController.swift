@@ -10,24 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    private lazy var sections: [TableSection] = {
-        let rose = ImageCellModel("rose", value: "rose")
-        let tulip = ImageCellModel("tulip", value: "tulip")
-        let cyclamen = ImageCellModel("cyclamen", value: "cyclamen")
-        let hydrangea = ImageCellModel("hydrangea", value: "hydrangea")
-        let orchid = ImageCellModel("orchid", value: "orchid")
-        let text = TextCellModel("Hello", subTitle: "World")
-        
-        return [TableSection.text(items: [text].map {AnyCell($0)}),
-                TableSection.image(items: [orchid, cyclamen, rose, tulip, hydrangea].map { AnyCell($0) })]
-    }()
+    let sections = Data.sections
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(TextTableViewCell.cellNib, forCellReuseIdentifier: TextTableViewCell.id)
         tableView.register(ImageTableViewCell.cellNib, forCellReuseIdentifier: ImageTableViewCell.id)
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 50
+        tableView.estimatedRowHeight = 100
     }
 }
 
@@ -39,22 +29,16 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch sections[section] {
-        case .text(let items):
-            return items.count
-        case .image(let items):
-            return items.count
-        }
+        return sections[section].items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch sections[indexPath.section] {
-        case .text(let items):
-            let item = items[indexPath.row]
-            return item.tableViewDequeueReusableCell(tableView)
-        case .image(let items):
-            let item = items[indexPath.row]
-            return item.tableViewDequeueReusableCell(tableView)
-        }
+        let items = sections[indexPath.section].items
+        let item = items[indexPath.row]
+        return item.tableViewDequeueReusableCell(tableView)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].title
     }
 }

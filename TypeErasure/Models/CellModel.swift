@@ -30,7 +30,7 @@ struct AnyCell {
     }
 }
 
-enum TableSection {
-    case image(items: [AnyCell])
-    case text(items: [AnyCell])
+struct Section {
+    let title: String
+    let items: [AnyCell]
 }

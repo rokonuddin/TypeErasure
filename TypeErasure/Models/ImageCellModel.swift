@@ -9,18 +9,16 @@
 import UIKit.UITableView
 
 struct ImageCellModel: CellModel {
-    internal let title: String
-    private let value: String
+    internal let name: String
     
-    init(_ title: String, value: String) {
-        self.title = title.capitalized
-        self.value = value
+    init(_ name: String) {
+        self.name = name
     }
     
     func tableViewDequeueReusableCell(_ tableView: UITableView) -> ImageTableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.id) as? Cell else {fatalError()}
-        cell.titleLabel.text = self.title
-        cell.thumbImageView.image = UIImage(named: self.value)
+        cell.titleLabel.text = self.name.capitalized
+        cell.thumbImageView.image = UIImage(named: self.name)
         return cell
     }
 }

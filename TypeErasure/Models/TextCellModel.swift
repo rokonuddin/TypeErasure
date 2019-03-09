@@ -9,17 +9,18 @@
 import UIKit.UITableView
 
 struct TextCellModel: CellModel {
-    internal let title: String
-    private let subTitle: String
+    internal let quote: String
+    private let author: String
     
-    init(_ title: String, subTitle: String) {
-        self.title = title
-        self.subTitle = subTitle
+    init(_ quote: String, author: String) {
+        self.quote = quote
+        self.author = author
     }
     
     func tableViewDequeueReusableCell(_ tableView: UITableView) -> TextTableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.id) as? Cell else {fatalError()}
-        cell.textLabel?.text = self.title
+        cell.titleLabel?.text = self.quote
+        cell.subtitleLabel?.text = self.author
         return cell
     }
 }
